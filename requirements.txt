@@ -1,0 +1,5 @@
+opencv-python==4.8.1
+numpy==1.26.0
+imutils==0.5.4
+pillow==10.0.1
+matplotlib==3.8.0
