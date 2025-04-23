@@ -35,3 +35,9 @@ faiss-cpu>=1.7.0  # Vector database
 # Utilities
 pyyaml>=6.0.0
 tqdm>=4.65.0
+requests>=2.28.0
+gdown>=4.6.0
+
+# Data version control
+dvc>=2.10.0
+dvc-gdrive>=2.19.0
