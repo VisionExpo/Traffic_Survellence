@@ -14,7 +14,6 @@ import zipfile
 import tarfile
 import shutil
 import requests
-import gdown
 from tqdm import tqdm
 import yaml
 
@@ -24,7 +23,6 @@ DATASETS = {
         "name": "Helmet Detection Dataset",
         "url": "https://www.kaggle.com/datasets/andrewmvd/helmet-detection/download",
         "kaggle_dataset": "andrewmvd/helmet-detection",
-        "gdrive_id": "1PQFNqgpKDxTNDKXIzaAYQrbjWOCDPVXS",  # Alternative Google Drive ID
         "type": "zip",
         "size_mb": 57,
         "description": "Dataset with annotations for helmet detection on motorcycle riders"
@@ -33,7 +31,6 @@ DATASETS = {
         "name": "CCPD (Chinese City Parking Dataset)",
         "url": "https://github.com/detectRecog/CCPD",
         "kaggle_dataset": "tolgadincer/ccpd",
-        "gdrive_id": "1rdEsCUcIUaYAO58U2Jn-hZQzC0U8Iwgj",  # Alternative Google Drive ID
         "type": "zip",
         "size_mb": 4200,
         "description": "Large dataset with annotated license plates"
@@ -41,8 +38,6 @@ DATASETS = {
     "vehicle": {
         "name": "UA-DETRAC (Urban Traffic Dataset)",
         "url": "https://detrac-db.rit.albany.edu/download",
-        "kaggle_dataset": "solesensei/solesensei_bstld",  # Alternative Kaggle dataset
-        "gdrive_id": "1AiNIgVQlZYLBQjkpvZhDrNDaUMbIZ1Xn",  # Alternative Google Drive ID
         "type": "zip",
         "size_mb": 1800,
         "description": "Dataset for vehicle detection and tracking with annotations"
