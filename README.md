@@ -87,15 +87,38 @@ The dashboard provides:
 
 ## How It Works
 
-The system uses computer vision techniques to detect and track vehicles and pedestrians in video streams:
+The system uses advanced computer vision and deep learning techniques to monitor traffic and detect violations:
 
-1. Video frames are captured from a file or camera
-2. Each frame is processed by the object detector
-3. Detected objects are annotated with bounding boxes
-4. Statistics are calculated and displayed
-5. Processed frames are shown in real-time
+1. **Video Processing**: Frames are captured from a file or camera source
+2. **Object Detection**: YOLOv8 detects vehicles, pedestrians, license plates, and helmets
+3. **Object Tracking**: Detected objects are tracked across frames using ByteTrack or other algorithms
+4. **License Plate Recognition**: License plates are detected and recognized using OCR
+5. **Speed Estimation**: Vehicle speeds are calculated based on tracking and calibration
+6. **Violation Detection**: The system identifies speeding vehicles and riders without helmets
+7. **Database Storage**: Violations and tracks are stored in a database for later analysis
+8. **Visualization**: Processed frames are annotated and displayed in real-time
 
-The application uses OpenCV's built-in detection methods (HOG for pedestrians and Haar cascades for vehicles) when pre-trained models are not available.
+The system uses YOLOv8 for object detection, but falls back to OpenCV's built-in methods (HOG for pedestrians and Haar cascades for vehicles) when pre-trained models are not available.
+
+## Project Structure
+
+```text
+├── config.yaml           # Main configuration file
+├── main.py               # Main application entry point
+├── requirements.txt      # Dependencies
+├── data/                 # Data directory
+│   ├── datasets/         # Training datasets
+│   ├── models/           # Trained models
+│   └── output/           # Output files and database
+└── src/                  # Source code
+    ├── detection/        # Object detection modules
+    ├── tracking/         # Object tracking modules
+    ├── ocr/              # License plate recognition
+    ├── utils/            # Utility functions
+    ├── visualization/    # Visualization modules
+    ├── database/         # Database management
+    └── dashboard/        # Web dashboard
+```
 
 ## License
 
