@@ -1,5 +1,37 @@
-opencv-python==4.8.1
-numpy==1.26.0
-imutils==0.5.4
-pillow==10.0.1
-matplotlib==3.8.0
+# Core dependencies
+opencv-python>=4.0.0
+numpy>=1.20.0
+torch>=2.0.0
+torchvision>=0.15.0
+ultralytics>=8.0.0  # YOLOv8
+
+# Tracking
+bytetrack>=0.1.0
+strongsort>=0.1.0
+
+# OCR
+easyocr>=1.7.0
+pytesseract>=0.3.10
+
+# Data processing
+pillow>=9.0.0
+imutils>=0.5.4
+scipy>=1.10.0
+pandas>=2.0.0
+
+# Visualization
+matplotlib>=3.5.0
+seaborn>=0.12.0
+
+# Web dashboard
+dash>=2.10.0
+dash-bootstrap-components>=1.4.0
+plotly>=5.14.0
+flask>=2.0.0
+
+# Database
+faiss-cpu>=1.7.0  # Vector database
+
+# Utilities
+pyyaml>=6.0.0
+tqdm>=4.65.0

@@ -1,0 +1,76 @@
+# Traffic Surveillance System Configuration
+
+# Paths
+paths:
+  datasets:
+    helmet: data/datasets/helmet
+    license_plate: data/datasets/license_plate
+    vehicle: data/datasets/vehicle
+  models:
+    detection: data/models/detection
+    tracking: data/models/tracking
+    ocr: data/models/ocr
+  output: data/output
+
+# Detection Models
+detection:
+  model_type: yolov8
+  model_size: m  # n, s, m, l, x
+  confidence_threshold: 0.5
+  classes:
+    - vehicle
+    - pedestrian
+    - helmet
+    - no_helmet
+    - license_plate
+  input_size: [640, 640]
+  batch_size: 16
+  epochs: 50
+
+# Tracking
+tracking:
+  algorithm: bytetrack  # bytetrack, deepsort, strongsort
+  max_age: 30
+  min_hits: 3
+  iou_threshold: 0.3
+  
+# Speed Estimation
+speed:
+  calibration_factor: 0.1  # pixels to meters conversion
+  speed_limit: 60  # km/h
+  
+# OCR
+ocr:
+  engine: easyocr  # easyocr, tesseract
+  languages: ['en']
+  
+# Database
+database:
+  type: sqlite  # sqlite, postgresql, vector_db
+  path: data/output/surveillance.db
+  vector_db:
+    type: faiss  # faiss, pinecone, weaviate
+    dimension: 512
+    
+# Visualization
+visualization:
+  window_name: "Advanced Traffic Surveillance"
+  width: 1280
+  height: 720
+  show_detections: true
+  show_tracks: true
+  show_speed: true
+  show_license_plates: true
+  show_helmet_status: true
+  
+# Web Dashboard
+dashboard:
+  enabled: true
+  port: 8050
+  host: "0.0.0.0"
+  theme: "dark"  # light, dark
+  
+# Logging
+logging:
+  level: INFO  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: data/output/surveillance.log
