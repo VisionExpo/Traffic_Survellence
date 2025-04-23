@@ -1,0 +1,12 @@
+# Core dependencies
+opencv-python>=4.0.0
+numpy>=1.20.0
+tqdm>=4.65.0
+pyyaml>=6.0.0
+
+# Data processing
+pillow>=9.0.0
+imutils>=0.5.4
+
+# Visualization
+matplotlib>=3.5.0

@@ -6,8 +6,9 @@ torchvision>=0.15.0
 ultralytics>=8.0.0  # YOLOv8
 
 # Tracking
-bytetrack>=0.1.0
-strongsort>=0.1.0
+# Note: These packages are not available on PyPI, they need to be installed from GitHub
+# pip install git+https://github.com/ifzhang/ByteTrack.git
+# pip install git+https://github.com/mikel-brostrom/yolov8_tracking.git
 
 # OCR
 easyocr>=1.7.0
