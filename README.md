@@ -1,22 +1,30 @@
-# Traffic Surveillance System
+# Advanced Traffic Surveillance System
 
-A real-time traffic surveillance application that detects and counts vehicles and pedestrians in video streams. The system provides both a desktop GUI and a web interface for monitoring traffic.
+A comprehensive traffic surveillance application that detects and tracks vehicles and pedestrians, recognizes license plates, detects helmets, and monitors speed violations. The system provides both a desktop GUI and a web dashboard for real-time monitoring and analysis.
 
 ## Features
 
-- Real-time vehicle and pedestrian detection
-- Live counting of traffic objects
-- Information panel with date, time, and statistics
-- Simulated real-time processing with FPS control
-- Both desktop GUI and web interface options
-- Sample video generation for testing
+- **Object Detection**: Real-time detection of vehicles, pedestrians, license plates, and helmets
+- **Object Tracking**: Track objects across frames with unique IDs
+- **License Plate Recognition**: Detect and recognize license plates on vehicles
+- **Helmet Detection**: Identify whether motorcycle riders are wearing helmets
+- **Speed Estimation**: Calculate and monitor vehicle speeds
+- **Violation Detection**: Identify traffic violations (speeding, no helmet)
+- **Database Storage**: Store violations and tracks for later analysis
+- **Vector Database**: Search for similar images using vector embeddings
+- **Web Dashboard**: Monitor traffic and analyze violations through a web interface
+- **Real-time Visualization**: Display processed frames with annotations and statistics
 
 ## Requirements
 
 - Python 3.7+
+- PyTorch and Torchvision
 - OpenCV
 - NumPy
-- Flask (for web interface)
+- Ultralytics YOLOv8
+- EasyOCR or Tesseract (for license plate recognition)
+- Dash and Plotly (for web dashboard)
+- FAISS (for vector database)
 - Other dependencies listed in `requirements.txt`
 
 ## Installation
@@ -36,40 +44,46 @@ A real-time traffic surveillance application that detects and counts vehicles an
 
 ## Usage
 
-### Desktop Application
+### Main Application
 
-Run the desktop application with:
+Run the main application with:
 
 ```bash
-python traffic_surveillance.py [options]
+python main.py [options]
 ```
 
 Options:
 
-- `--source`, `-s`: Path to video file (default: generates a sample video)
-- `--confidence`, `-c`: Minimum confidence threshold for detections (0-1)
-- `--fps`, `-f`: Target FPS for display
-- `--width`, `-W`: Display window width
-- `--height`, `-H`: Display window height
+- `--config`: Path to configuration file (default: config.yaml)
+- `--source`: Path to video file or camera index
+- `--output`: Path to output directory
+- `--dashboard`: Launch the web dashboard
+- `--debug`: Enable debug mode
 
 Press 'q' to quit the application.
 
-### Web Application
+### Configuration
 
-Run the web application with:
+The system is configured through the `config.yaml` file, which includes settings for:
 
-```bash
-python web_app.py [options]
-```
+- Detection models and parameters
+- Tracking algorithms
+- OCR engines
+- Speed estimation calibration
+- Database settings
+- Visualization options
+- Dashboard configuration
 
-Options:
+### Web Dashboard
 
-- `--source`, `-s`: Path to video file (default: generates a sample video)
-- `--confidence`, `-c`: Minimum confidence threshold for detections (0-1)
-- `--fps`, `-f`: Target FPS for processing
-- `--port`, `-p`: Port for the web server (default: 5000)
+The web dashboard is automatically launched when using the `--dashboard` option. You can access it by opening your browser and navigating to `http://localhost:8050` (or the port specified in the configuration).
 
-Then open your browser and navigate to `http://localhost:5000`.
+The dashboard provides:
+
+- Live video feed with annotations
+- List of recent violations with details
+- Statistics and charts for analysis
+- Search functionality for finding similar violations
 
 ## How It Works
 
