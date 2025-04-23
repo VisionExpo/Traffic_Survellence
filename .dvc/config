@@ -1,0 +1,5 @@
+[core]
+    remote = gdrive
+['remote "gdrive"']
+    url = gdrive://traffic_surveillance_datasets
+    gdrive_acknowledge_abuse = true
